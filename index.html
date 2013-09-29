@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>VectorKnight</title>
+    <script src="main.js">
+    </script>
+</head>
+<body>
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>VectorKnight</title>
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="main.js">
+    </script>
+    <link rel="stylesheet" href="main.css" type="text/css">
+    <div class="opt" style="display: none;">
+    <a draggable="true" class="dragout" ondragend="document.querySelector('.opt').style.display='none';"
+   data-downloadurl="image/xml+svg:exported.svg:data://image/xml+svg;base64,">drag this out to download (Chrome)</a><br>
+    <textarea class="optText" onchange="document.querySelector('.opt').style.display = 'none';"></textarea><br>
+    </div>
+    <div id="canvasWrap">
+<svg onmousedown="point_it(event)" onmouseup="point_out(event); accionBeta(this); " id="canvas" xmlns="http://www.w3.org/2000/svg" version="1.1" style="width: 800px; height: 600px;">
+   </svg> </div><br>
+<div class="props" style="width: 128px; float:right">
+    Fill 
+    <input type="color" id="color"><br> Outline 
+    <input type="color" id="stroke"><br> Outline Width
+    <input type="number" id="stSize" step="1" min="0" max="800" value="2" />px
+    <button onclick="swTool('text')" id="text">Text</button><br>
+    <button onclick="swTool('circle')" id="circle">Circle</button><br>
+    <button onclick="swTool('rect')" id="rect">Rectangle</button> <br>
+    <button onclick="swTool('line')" id="line">Line</button> <br>
+    <button onclick="swTool('fill')" id="fill">Fill</button> <br>
+    Set <button onclick="cvChange()">Canvas Size</button> to
+    <input type="number" id="cvWidth" step="1" min="0" max="9999999999999" value="800" />px X
+    <input type="number" id="cvHeight" step="1" min="0" max="9999999999999" value="600" />px
+    <button onclick="prepareExport()" id="export">Export SVG</button> <br>
+    <input type="text" id="textin" style="display: none;">
+    <details style="display:none;">
+  <summary>Properties</summary>
+    <details style="display:inline;">
+    <summary style="display:inline;">Text</summary>
+    <br>Text</details><br>
+    Y <input type="text" id="y">X <input type="text" id="x"><br>
+    <details style="display:inline;"><summary style="display:inline;">Rectangle</summary><br>
+    width <input type="text" id="width"><br>
+    height <input type="text" id="height"></details> 
+    <details style="display:inline;">
+    <summary style="display:inline;">Circle</summary> <br>
+    radius <input type="text" id="r"></details>
+</details>
+</div>    
+</body>
